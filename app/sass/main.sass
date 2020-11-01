@@ -1,0 +1,1209 @@
+@import "fonts"
+@import "libs"
+@import "vars"
+
+*
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+	&:before, &:after
+		-webkit-box-sizing: border-box
+		-moz-box-sizing: border-box
+		box-sizing: border-box
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+
+html, body
+	height: 100%
+	// background: $linear1
+	background-color: $purple
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $lato
+	overflow-x: hidden
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+.text-center
+	text-align: center
+
+::selection
+	background-color: $linear1
+	color: lighten($pink, 5)
+
+.yellow_line
+	height: 100vh
+	width: 20px
+	background-color: $yellow
+	position: fixed
+	right: 0
+// preloader start
+.preloader
+	position: fixed
+	left: 0
+	top: 0
+	width: 100%
+	height: 100vh
+	background: $purple
+	z-index: 9999
+	transition: 1s all
+	opacity: 1
+	visibility: visible
+	display: flex
+	align-items: center
+	justify-content: center
+	.loader
+		width: 20%
+		height: 20%
+		background: url(../img/element.svg) center no-repeat
+		background-size: contain
+		animation: 1.5s spin infinite linear
+		
+	&.done
+		opacity: 0
+		visibility: hidden
+// preloader end
+// thanks start
+.thank
+	position: fixed
+	width: 55%
+	top: 5%
+	left: 50%
+	transform: translateX(-50%)
+	z-index: 2
+	color: $white
+	background-color: $yellow
+	padding: 50px 50px
+	padding-top: 30px	
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+	&_overlay
+		display: none
+		z-index: 1
+		background-color: rgba(0,0,0,.5)
+		position: fixed
+		top: 0
+		left: 0
+		height: 100%
+		width: 100%
+	&_title
+		// margin-left: 75px
+		margin-left: auto
+		margin-right: auto
+		width: 100%
+		margin-top: 0
+		margin-bottom: 5px
+		// margin-bottom: 25px
+		font-size: 28px
+		color: $white
+	&_title1
+		font-size: 20px
+		padding: 10px 30px 0px 30px
+		font-weight: 400
+	&_text1
+		font-size: 18px
+		padding: 0px 40px
+		width: 80%
+		font-weight: 400
+	&_video
+		display: flex
+		width: 90%
+		margin: 0 auto
+		border-radius: 2px
+	&_text
+		margin: 0 auto
+		font-size: 22px
+		line-height: 1.3
+		width: 90%
+		&__2
+			display: block
+			margin-top: 20px
+			color: $purple
+			padding: 10px 0 
+	&_close
+		position: absolute
+		top: 25px
+		right: 30px
+		i 
+			font-size: 30px
+			color: $white
+			transition: all .25s ease
+		&:hover
+			i
+				transform: scale(1.3)
+				color: $white
+	&_closed
+		animation: thank_closed .5s ease 
+	&_btn
+		color: $yellow
+		background-color: $pink
+		padding: 10px 50px
+		border-radius: 2px
+		position: absolute
+		right: -15px
+		bottom: 30px
+		font-size: 18px
+		transition: all .25s ease
+		box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+		&:hover
+			color: $white
+			text-decoration: none
+			background-color: darken($pink, 2)
+			transform: scale(1.1)
+	&_img
+		width: 300px
+		position: absolute
+		right: -50px
+		bottom: 30px
+		box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+		transition: all .4s ease
+		border-radius: 2px
+		img
+			width: 100%
+		&:hover
+			width: 100%
+			transform: scale(1.1)
+			bottom: 0
+			right: 0
+			cursor: pointer
+	&_link
+		color: $pink
+		text-decoration: none
+		transition: all .25s ease
+		font-weight: bold
+		&:hover
+			text-decoration: none
+			color: $white
+
+			
+@keyframes thank_closed
+	0%
+		opacity: 1
+	100%
+		opacity: 0			
+// thanks end
+// start page
+.start_page
+	background: url('../img/site-retreat.png') no-repeat
+	background-size: cover
+	background-position: center
+	// height: 100vh
+// start page
+// header start
+.header
+	padding: 0px 105px
+	padding-top: 20px
+	display: flex
+	justify-content: space-between
+	align-items: center
+	.logo_box
+		opacity: 0
+		padding: 0
+		img
+			width: 100px
+			transition: transform .5s ease
+			&:hover
+				transform: scale(1.1)
+	&_menu
+		ul
+			list-style: none
+			padding: 0
+			margin: 0
+			display: flex
+			width: 100%
+			li
+				padding: 0px 10px
+				&:last-child
+					a
+						&:before
+							background-color: transparent
+				a
+					color: $yellow
+					position: relative
+					font-size: 18px
+					font-weight: 300
+					text-decoration: none
+					border-bottom: .5px solid transparent
+					transition: all .3s ease-in
+					&:hover
+						// color: $blue
+						// border-bottom: .5px solid $blue
+						&:before
+							animation: widthgrow .3s ease-in
+							width: 100%
+					.is-active
+						background-color: $yellow
+					&:before
+						content: ''
+						background-color: $pink
+						height: 1.2px
+						width: 0%
+						position: absolute
+						bottom: -4px
+						left: 0px
+				.header_menu__btn
+					display: none
+					padding: 7px 35px
+					border-radius: 25px
+					background-color: $yellow
+					color: $white 
+					border: none
+					border: 1px solid transparent
+					transition: all .3s ease-in
+					&:hover
+						border: 1px solid $yellow
+						background-color: $white
+						color: $yellow
+				.lang_block
+					padding: 0px 10px
+					
+					.pt
+						padding: 0px 5px
+						color: lighten($pink,20)
+						font-style: italic
+						font-size: 14px
+						&:hover
+							color: lighten($yellow, 15)
+					.eng
+						padding: 0px 5px
+						color: lighten($pink,20)
+						font-style: italic
+						font-size: 14px
+						&:hover
+							color: lighten($yellow, 15)
+		&__mobile
+			display: none
+			text-align: center
+			width: 100%
+			transition: all .25s ease
+			ul
+				list-style: none
+				display: flex
+				justify-content: space-between
+				padding: 0
+				flex-direction: column
+				li
+					padding: 5px 0
+					a
+						&:before
+							content: ''
+							background-color: $pink
+							height: 1.2px
+							width: 0%
+							position: absolute
+							bottom: -4px
+							left: 0px
+						color: $yellow
+						position: relative
+						font-size: 20px
+						font-weight: 300
+						text-decoration: none
+						border-bottom: 1px solid transparent
+						transition: border-color .45s ease
+						&:hover
+							// color: $blue
+							// border-bottom: .5px solid $blue
+							&:before
+								animation: widthgrow .3s ease-in
+								width: 100%
+					.header_menu__btn
+						display: none
+						padding: 7px 35px
+						border-radius: 25px
+						background-color: $yellow
+						color: $white 
+						border: none
+						border: 2px solid transparent
+						transition: all .2s ease
+						&:hover
+							border: 2px solid $yellow
+							background-color: $white
+							color: $yellow
+				.lang_block
+					padding: 0px 10px
+					
+					.pt
+						padding: 0px 5px
+						color: lighten($pink,20)
+						font-style: italic
+						font-size: 14px
+						&:hover
+							color: lighten($yellow, 15)
+					.eng
+						padding: 0px 5px
+						color: lighten($pink,20)
+						font-style: italic
+						font-size: 14px
+						&:hover
+							color: lighten($yellow, 15)
+		&.active_menu
+			color: $yellow
+// header end
+// main start
+.main
+	margin-top: 210px
+	color: $yellow
+	&_backimg
+		position: absolute
+		top: -60%
+		left: -5%
+		img
+			transition: all .25s ease
+			&:hover
+				transform: scale(1.1)
+				cursor: pointer
+	&_content
+		position: relative
+		&__img
+			margin-top: 40px
+			img
+				width: 100%
+		&__place
+			letter-spacing: 3px
+			font-size: 22px
+			margin-top: 50px
+			line-height: 1
+			position: relative
+		&__title
+			padding: 0
+			margin: 0
+			font-size: 100px
+			letter-spacing: 15px
+			line-height: 1.2
+			color: $white
+			z-index: 5
+			position: relative
+		&__title2
+			font-size: 32px
+			margin-top: 0px
+			line-height: 1.2
+			letter-spacing: 5px
+			font-weight: 800
+			color: $pink
+			position: relative
+			z-index: 5
+		&_img
+			img
+				position: absolute
+				top: 90px
+				left: 0
+				z-index: 1
+		&__date
+			font-size: 20px
+			letter-spacing: 4px
+			margin-top: 20px
+			font-weight: 300
+			color: $white
+			position: relative
+			z-index: 5
+	&_imgbox
+		position: absolute
+		top: -70px	
+		&:hover
+			img
+				cursor: pointer
+		img
+			margin-left: 100px
+			width: 15%
+			&:hover
+				animation: spin .8s linear infinite
+.spin
+	animation: spin 3s  linear infinite		
+@keyframes fly
+	0%
+		transform: rotate(5deg) translateY(-20px)
+	10%
+		transform: rotate(15deg) translateY(-80px)
+	20%
+		transform: rotate(20deg) translateY(-160px)
+	30%
+		transform: rotate(25deg) translateY(-240px)
+	40%
+		transform: rotate(30deg) translateY(-360px)
+	50%
+		transform: rotate(35deg) translateY(-480px)
+	60%
+		transform: rotate(40deg) translateY(-600px)
+	70%
+		transform: rotate(45deg) translateY(-770px)
+	80%
+		transform: rotate(50deg) translateY(-850px)
+	90%
+		transform: rotate(60deg) translateY(-910px)
+	100%
+		transform: rotate(65deg) translateY(-1020px)
+@keyframes spin
+	0%
+    	transform: rotate(0deg)
+	100%
+    	transform: rotate(360deg)
+@keyframes widthgrow 
+	0%
+		width: 0
+	100%
+		width: 100%
+// main end
+// companies-head start
+.companies-head
+	margin-top: 90px
+	padding-bottom: 50px
+	text-align: right
+	&_container
+		display: flex
+		justify-content: flex-end
+		align-items: center
+		&-item
+			width: 13%
+			padding: 0px 10px
+			display: inline-block
+			img
+				width: 100%
+// companies-head end
+// about
+.about
+	background: url('../img/dots-exp.png')
+	background-size: cover
+	background-position: center
+	margin-bottom: 50px
+	position: relative
+	&_whitecross
+		position: absolute
+		width: 40px
+		bottom: -20%	
+		left: 10%
+		img
+			transition: all .55s ease
+			&:hover
+				transform: rotate(90deg)
+	&_container
+		padding-right: 0
+		margin-right: 0
+		padding-left: 0px
+	&_content
+		padding: 60px 0px
+		margin-left: -50px
+		&__title
+			color: $white
+			font-size: 40px
+			letter-spacing: 3px
+			line-height: 1
+		&__text
+			color: $yellow
+			margin-top: 10px
+			line-height: 1.4
+	&_video
+		margin: 0px
+		border-radius: 2px
+		width: 100%
+		position: relative
+		z-index: 1		
+// about
+// speakers
+
+.mfp-bg
+	background: $yellow
+	opacity: .97
+	transition: all .4s ease
+.mfp-close-btn-in .mfp-close
+	color: $white
+	font-size: 40px
+	right: 40px
+	transition: all .25s ease
+	&:hover
+		transform: scale(1.1)
+.mfp-container
+	position: relative
+.mfp-content
+	position: absolute
+	top: 10%
+	left: 0
+.speakers
+	color: $pink
+	margin-top: 60px
+	transition: all 1s ease
+	background: url('../img/dots-exp.png')
+	background-size: cover
+	background-position: center
+	&_content
+		transition: all .5s ease
+		z-index: 999
+		margin-bottom: 50px
+		&__box
+			display: flex
+			align-items: center
+			justify-content: center
+			flex-direction: row
+		&__img
+			width: 50%
+			border-radius: 2px
+		&__title
+			font-size: 45px
+			color: $white
+			line-height: 1.1
+			margin-bottom: 10px
+			margin-top: 0
+		&__text
+			color: $white
+			font-size: 20px
+			line-height: 1.1
+			margin-top: 20px
+			margin-bottom: 10px
+		&__small
+			color: $pink
+			font-style: italic
+			font-size: 14px
+			// margin-top: 20px
+		&__block
+			padding: 0px 20px
+			display: flex
+			justify-content: center
+			align-items: center
+			flex-direction: column
+			width: 50%
+	&__bottom
+		margin-top: 30px
+	&_box
+		margin: 20px 0px
+	&_title
+		line-height: 1.4
+		font-size: 60px
+		font-weight: 800
+		letter-spacing: 5px
+		margin: 0
+		color: $white
+	&_subtitle
+		line-height: 1.4
+		margin-bottom: 50px
+		margin-top: 10px
+		width: 50%
+	&_mainlogo
+		margin-top: 5px
+		padding: 35px
+		&__title
+			color: $pink
+			text-align: center
+			margin-top: 20px
+			font-size: 22px
+			margin-bottom: 20px
+		&__text
+			font-size: 14px
+			line-height: 1.4
+			text-align: left
+			color: $white
+	&_img
+		background-color: darken($pink, 5)
+		box-shadow: 0 10px 20px rgba($pink,.25)
+		text-align: center
+		transition: background-color .2s ease
+		&:hover
+			cursor: pointer
+			background-color: $pink
+			box-shadow: 0 10px 30px rgba($pink,.40)
+		img
+			width: 70%
+			margin: 50px 0px
+			padding: 0px 5px
+	.speaker1
+		margin-top: 40px
+		img
+			transform: rotate(-5deg)
+			padding: 0
+			transition: all .4s ease
+			&:hover
+				transform: scale(1.13) rotate(3deg)
+	.speaker2
+		margin: 10px
+		margin-top: 100px
+		img
+			width: 85%
+			transform: rotate(7deg)
+			margin: 70px 0
+			transition: all .3s ease
+			&:hover
+				transform: scale(1.1) rotate(-4deg)
+	.speaker3
+		img
+			width: 85%
+			transition: all .5s ease
+			&:hover
+				transform: scale(1.1) rotate(7deg)
+				
+	.speaker4
+		&_box
+			padding: 20px
+		img
+			width: 80%
+			transform: rotate(5deg)
+			transition: all .3s ease
+			&:hover
+				transform: scale(1.1) rotate(-2deg)
+				
+	&_findmore
+		margin-top: 30px
+		margin-bottom: 20px
+		text-align: right
+		display: flex
+		justify-content: flex-end
+		align-items: center
+		&__text
+			font-size: 20px
+			letter-spacing: 2px
+			font-weight: 600
+			display: inline-block
+		button
+			border: none
+			color: $yellow
+			background-color: transparent
+			margin-left: 20px
+			font-size: 40px
+			text-align: center
+			outline: none
+			transition: all .3s ease
+			padding: 0
+			transform: rotate(90deg)
+			&:hover
+				color: lighten($pink, 5)
+		.btn-active
+			transform: rotate(270deg)
+	&_info
+		margin-top: 20px
+		padding: 0px 10px
+		margin-bottom: 70px
+		&__name
+			font-size: 20px
+			font-weight: 800
+			line-height: 1.2
+			letter-spacing: 2px
+		&__job
+			letter-spacing: 1px
+			font-size: 14px	
+			color: $white
+		&__social
+			i
+				color: $white
+				padding: 0px 5px
+				&:hover
+					color: $yellow
+// speakers
+
+// schedule
+.schedule
+	background: url('../img/dots-exp.png')
+	background-size: contain
+	background-position: center
+	margin-top: -60px
+	text-align: center
+	color: $yellow
+	&_box__top
+		display: flex
+		justify-content: space-between
+		align-items: center
+		text-align: center
+		flex-basis: 20%
+	&_time__top
+		width: 10%
+		font-size: 18px
+		height: 100px
+		display: flex
+		justify-content: center
+		align-items: center
+		// border-bottom: 1.3px solid lighten($yellow, 15%)
+		// border-left: 1.3px solid lighten($yellow,15%)
+	&_event__top
+		width: 40%
+		height: 100px
+		display: flex
+		justify-content: center
+		align-items: center
+		// border-left: 1.3px solid lighten($yellow, 15%)
+		border-bottom: 1.3px solid lighten($yellow, 15%)
+		font-size: 20px
+		font-weight: 200
+		margin-right: 30px
+		sup
+			font-weight: 200
+	&_box
+		display: flex
+		justify-content: space-between
+		align-items: center
+		text-align: center
+		flex-basis: 20%
+	&_time
+		width: 10%
+		min-height: 140px
+		display: flex
+		justify-content: center
+		align-items: center
+		// border-left: 1px solid $yellow
+		// border-bottom: 1px solid $yellow
+		font-size: 18px
+		font-weight: 100
+		&__sb
+			border-left: none
+		&__dbl
+			&-block
+				&__dash
+					display: none
+	&_event
+		width: 40%
+		min-height: 140px
+		display: flex
+		justify-content: center
+		align-items: center
+		padding: 20px
+		border-left: 1px solid lighten($yellow, 25%)
+		border-bottom: 1px solid $yellow
+		font-weight: 400
+		margin-right: 30px
+		&-small
+			border: none
+			font-weight: 200
+			align-items: flex-start
+			color: lighten($pink, 25)
+		&_content
+			box-shadow: 0 2px 5px rgba(0,0,0,0.1)
+			transition: all .3s ease
+			min-width: 60%
+			&-small
+				font-size: 12px
+				box-shadow: none
+			&__title
+				font-size: 18px
+				background-color: $yellow
+				color: $white
+				font-style: italic
+				transition: all .25s ease
+				&-red
+					background-color: $pink
+			&__descr
+				font-size: 16px
+				padding: 5px 15px
+				font-weight: 200
+				transition: all .5s ease
+				background-color: transparent
+			&:hover
+				.schedule_event_content__title
+					background-color: $yellow
+				.schedule_event_content__descr
+					color: $yellow
+.opacity_none
+	opacity: 0	
+// schedule
+
+// talks
+.talks
+	color: $yellow
+	margin-top: 50px
+	margin-bottom: 50px
+	background: url('../img/dots-exp.png')
+	background-size: contain
+	background-position: center
+	position: relative
+	&_whitecross
+		position: absolute
+		top: -20%
+		left: 10%
+		transition: all .4s ease
+		img
+			width: 40px
+			animation: spin 1s  linear infinite	
+	&_title
+		text-align: left
+		font-size: 60px
+		letter-spacing: 4px
+		margin-bottom: 15px
+		font-weight: 600
+		color: $white
+	&_descr
+		margin-bottom: 40px
+		line-height: 1.4
+		width: 50%
+	&_content
+		&__image
+			background-color: $pink
+			padding: 5px
+			transition: all .5s ease
+			&:hover
+				background-color: darken($pink, 10)
+				img
+					filter: grayscale(0)
+			img
+				width: 100%
+				filter: grayscale(100)
+				transition: all .4s ease
+			// &-img1
+			// 	transform: rotate(5deg)
+			// &-img2
+			// 	padding: 10px 0
+			// &-img3
+			// 	transform: rotate(-10deg)
+			// 	padding: 20px
+		&__theme
+			margin-top: 30px
+			font-size: 20px
+			font-weight: 300
+			color: $yellow
+			line-height: 1.4
+		&__descr
+			font-size: 16px
+			font-weight: 100
+			color: $yellow
+// talks
+// talkslist start
+.talkslist
+	margin-top: 50px
+	&_block
+		padding: 5px
+		// border-right: 1px dotted $pink
+		&__mid
+			border-right: 1px dotted $pink
+			border-left: 1px dotted $pink
+		&__top
+			// margin-left: 40px
+			margin-bottom: 20px
+			img
+				width: 80%
+				height: 100px
+		&__content
+			color: $pink
+			padding: 10px 30px
+			line-height: 1.4
+			&-descr
+				color: $white
+				font-size: 16px
+			&-small
+				font-size: 13px
+				font-style: italic
+				padding: 5px
+				color: lighten($pink, 25)
+// talkslist end
+// place
+.place
+	margin-top: 70px
+	position: relative
+	color: $yellow
+	background: url('../img/dots-exp.png')
+	background-size: contain
+	background-position: center
+	&_title
+		font-size: 60px
+		color: $white
+		top: 0
+		right: 0
+		padding: 0
+		margin: 0
+		letter-spacing: 4px
+	&_content
+		padding: 40px 0px
+		display: flex
+		flex-direction: column
+		&__item
+			display: flex
+			align-items: center
+			padding: 20px 0px
+			padding-right: 10px
+			&-img
+				padding: 0px 10px
+				img
+					width: 60px
+			&-text
+				padding: 0px 10px
+	.map
+		padding: 5px 15px 5px 0px
+// place
+// our companies
+.our-companies
+	margin-top: 0px
+	margin-bottom: 50px
+	color: $yellow
+	background: url('../img/dots-exp.png')
+	background-size: contain
+	background-position: center
+	&_title
+		text-align: left
+		font-size: 60px
+		font-weight: 600
+		letter-spacing: 4px
+		margin-bottom: 50px
+		color: $pink
+	&_row
+		margin-bottom: 15px
+		padding: 20px
+	&_box
+		display: block
+		text-align: center
+	&_company
+		padding: 5px 15px
+		display: inline-block
+		&-logo
+			width: 100px
+			margin: 10px
+			border-radius: 2px
+			text-align: center
+			&:hover
+				img
+					transform: scale(1.05)
+			img
+				height: 100px
+				width: 100%
+				text-align: center
+				transition: all .55s ease
+			&-smaller
+				img
+					width: 70%
+
+// our companies
+// footer
+.footer
+	color: $yellow
+	margin-top: 30px
+	padding-bottom: 30px
+	background-color: darken($purple,15)
+	padding-top: 30px
+	&_title
+		text-align: center
+		color: $white
+		letter-spacing: 1.5px
+	// &_contacts
+	// 	font-weight: 200
+	// &_center
+	// 	margin-top: 20px
+	// 	letter-spacing: 4px
+	// 	font-weight: 200
+	// 	text-align: center
+	// 	color: $yellow
+	// 	font-size: 20px
+	// 	&__year
+	// 		color: lighten($pink, 5%)
+	// .socials
+	// 	list-style: none
+	// 	padding: 0
+	// 	display: flex
+	// 	justify-content: flex-end
+	// 	align-items: center
+	// 	li
+	// 		padding: 0px 10px
+	// 		a
+	// 			text-decoration: none
+	// 			color: lighten($yellow, 35%)
+	// 			transition: all .25s ease
+	// 			&:hover
+	// 				color: darken($pink, 15%)
+	// 				transform: scale(1.2)
+// footer
+
+// gallery
+.gallery
+	background: url('../img/dots-exp.png')
+	background-size: cover
+	background-position: center
+	margin-bottom: 100px
+	&_header
+		text-align: center
+		padding-top: 30px
+		a
+			color: $pink
+			i
+				margin-right: 5px
+	&_btns
+		text-align: center
+		margin-bottom: 30px
+	&_btn
+		background-color: $yellow
+		border: 1px solid transparent
+		// border-radius: 20px
+		width: 100px
+		padding: 5px 0px
+		margin: 0px 10px
+		// box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+		transition: all .3s ease
+		outline: none
+		&:hover
+			background-color: $pink
+			color: $yellow
+		.selected
+			background-color: $pink
+			color: $yellow
+	&_watermark
+		position: absolute
+		top: 0
+		left: 0
+		height: 100%
+		width: 100%
+		background-color: transparent
+	&_top
+		text-align: center
+		color: $white
+		&__title
+			text-align: center
+			font-size: 40px
+			letter-spacing: 4px
+			margin-bottom: 15px
+			margin-top: 0
+			font-weight: 600
+			color: $white
+		&__subtitle
+			color: $yellow
+			font-weight: 200
+			font-size: 20px
+			margin-top: 0
+			margin-bottom: 30px
+			line-height: 1.4		
+	&_item
+		position: relative
+		width: 33%
+		display: inline-block
+		text-align: center
+		margin: 5px auto
+		padding: 0px 5px
+		transition: all .5s ease
+ 		// padding: 5px 10px
+		&:hover
+			transform: scale(0.95)
+			cursor: pointer
+		video
+			vertical-align: middle
+			border-radius: 2px
+			padding: 0
+			// margin-left: 5px
+			// margin-right: 5px
+			width: 100%
+			box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+		iframe
+			vertical-align: middle
+			border-radius: 2px
+			padding: 0
+			// margin-left: 5px
+			// margin-right: 5px
+			width: 100%
+			box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)			
+		img
+			width: 100%
+			border-radius: 2px
+			box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+		&__big
+			display: flex
+			justify-content: center
+			align-items: center
+			flex-direction: column
+			position: relative
+			width: 80%
+			margin: 0 auto
+		&-image
+			margin-bottom: 10px
+			text-align: center
+			img
+				width: 70%
+				box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+		&-video
+			width: 800px
+			height: 400px
+			margin-bottom: 30px
+			padding: 0
+			iframe
+				width: 100%
+		&-share
+			display: flex
+			justify-content: center
+			align-items: center
+			a
+				padding: 0px 10px
+				transition: all .4s ease
+				i 
+					color: $blue
+					font-size: 30px
+				&:hover
+					i 
+						color: $pink
+					transform: scale(1.1)
+		&-download
+			margin-top: 10px
+			transition: all .4s ease
+			a
+				padding: 10px 50px
+				background-color: $pink
+				color: $white
+			&:hover
+				background-color: $white
+				color: $pink
+				transform: scale(1.1)
+				a
+					text-decoration: none
+	&_download
+		text-align: center
+		margin-top: 40px
+		a
+			color: $pink
+			background-color: $yellow
+			padding: 12px 50px
+			transition: all .4s ease
+			&:hover
+				text-decoration: none
+				box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+				background-color: $pink
+				color: $yellow
+
+.mixitup-control-active
+	background-color: $pink
+	color: $yellow
+.goup
+	position: fixed
+	bottom: 20px
+	right: 50px
+	z-index: 5
+	transition: all .25s ease
+	i 
+		color: $pink
+		font-size: 30px
+		background-color: $yellow
+		padding: 10px
+		border-radius: 50%
+	&:hover
+		transform: scale(1.1)
+// gallery
+
+
+// hamburger
+.hamburger
+	display: none
+	position: absolute
+	z-index: 5
+	right: 10%
+	top: 0px
+	color: $yellow
+	.hamburger-box
+		width: 30px
+
+.hamburger-inner, .hamburger-inner::after, .hamburger-inner::before
+	border-radius: 0
+	width: 35px
+	height: 1.5px
+	background-color: $yellow
+// hamburger
+@import "media" // Всегда в конце
